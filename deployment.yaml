@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-express-deployment
+spec:
+  selector:
+    matchLabels:
+      app: node-express
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: node-express
+    spec:
+      containers:
+        - name: node-express
+          image: huangyanyan/node-express-service
+          ports:
+            - containerPort: 8080
