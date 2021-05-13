@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: hello
+  name: node-express-cronjob
 spec:
   #  Cron 格式串  Seconds Minutes Hours DayofMonth Month DayofWeek Year  每1分钟
   schedule: "*/1 * * * *"
@@ -10,8 +10,8 @@ spec:
       template:
         spec:
           containers:
-          - name: hello
-            image: busybox
+          - name: node-express
+            image: huangyanyan/node-express-service
             imagePullPolicy: IfNotPresent
             command:
             - /bin/sh
